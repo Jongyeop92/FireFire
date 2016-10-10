@@ -50,19 +50,19 @@ def notifyFire():
 
         result = push_service.notify_single_device(registration_id=token, data_message=data)
     
-    # send sms
-    cool = coolsms.rest(SMS_API_KEY, SMS_API_SECRET)
-
-
-    # to user
-    message = '%s 에서 화재 발생!' % (user_data['address'].encode('utf8'))
-    sms_number_list = user_data['sms_number_list']
-    for sms_number in sms_number_list:
-        status = cool.send(sms_number, message, SENDER)
-
-    # to 119
-    message = u"%s 에서 화재 발생! 추가 정보: %s" %(user_data['address'].encode('utf8'), user_data['additional_info'].encode('utf8'))
-    status = cool.send(NUMBER_OF_119, message, SENDER)
+##    # send sms
+##    cool = coolsms.rest(SMS_API_KEY, SMS_API_SECRET)
+##
+##
+##    # to user
+##    message = '%s 에서 화재 발생!' % (user_data['address'].encode('utf8'))
+##    sms_number_list = user_data['sms_number_list']
+##    for sms_number in sms_number_list:
+##        status = cool.send(sms_number, message, SENDER)
+##
+##    # to 119
+##    message = u"%s 에서 화재 발생! 추가 정보: %s" %(user_data['address'].encode('utf8'), user_data['additional_info'].encode('utf8'))
+##    status = cool.send(NUMBER_OF_119, message, SENDER)
 
 def main():
     notifyFire()
